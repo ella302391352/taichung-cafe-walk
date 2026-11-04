@@ -7,7 +7,7 @@ type: 咖啡店
 price: $200-400
 rating: 4.4
 reviews: 742
-tags: 老屋, 鹹派, 甜點, 舊城區, 每日營業
+tags: 老屋, 有鹹食, 甜點, 舊城區, 每日營業
 tagline: 日治時期老診所改建
 maps: https://www.google.com/maps/search/?api=1&query=Hausinc%201035%20400%E8%87%BA%E4%B8%AD%E5%B8%82%E4%B8%AD%E5%8D%80%E5%85%AC%E5%9C%92%E9%87%8C%E5%B8%82%E5%BA%9C%E8%B7%AF73%E8%99%9F
 updated: 2026-11-04
@@ -22,7 +22,7 @@ updated: 2026-11-04
 - 價位：$200-400
 - 服務：內用、外帶、外送；無無障礙入口
 - Google 地圖：https://www.google.com/maps/search/?api=1&query=Hausinc%201035%20400%E8%87%BA%E4%B8%AD%E5%B8%82%E4%B8%AD%E5%8D%80%E5%85%AC%E5%9C%92%E9%87%8C%E5%B8%82%E5%BA%9C%E8%B7%AF73%E8%99%9F
-- 標籤：#老屋 #鹹派 #甜點 #舊城區 #每日營業
+- 標籤：#老屋 #有鹹食 #甜點 #舊城區 #每日營業
 
 ## 特色
 

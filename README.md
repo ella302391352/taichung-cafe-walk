@@ -2,7 +2,8 @@
 
 把我在 Google 地圖收藏的台中咖啡廳，交給 AI Agent 依照一套固定規則整理成導覽網站。
 
-- **網站**：`https://<你的帳號>.github.io/<repo 名稱>/`
+- **網站**：https://ella302391352.github.io/taichung-cafe-walk/
+- **GitHub**：https://github.com/ella302391352/taichung-cafe-walk
 - **規則手冊**：[AGENTS.md](AGENTS.md)（[CLAUDE.md](CLAUDE.md) 指向它）
 - **新增店家 skill**：[skills/add-cafe/SKILL.md](skills/add-cafe/SKILL.md)
 

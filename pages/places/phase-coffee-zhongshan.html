@@ -30,7 +30,8 @@
 <p>評論中常被提到：法式吐司、提拉米蘇、酸種、巴斯克、焦糖布丁、無花果、紅烏龍、酪梨醬</p><h2>我的筆記</h2>
 <p class="empty">（尚未填寫。去過之後由我補上。）</p><h2>資料來源</h2>
 <ul><li><a href="../../raw/research/phase-coffee-zhongshan.md">raw/research/phase-coffee-zhongshan.md</a>（Google 地圖店家頁，2026-11-04）</li></ul></article>
-    <aside class="facts">
+    <aside class="facts" data-hours="一 09:00-19:00 | 二 09:00-19:00 | 三 09:00-19:00 | 四 09:00-19:00 | 五 09:00-19:00 | 六 09:00-19:00 | 日 09:00-19:00">
+      <div class="today today-big" data-today></div>
       <dl><dt>地區</dt><dd>臺中市中區</dd><dt>地址</dt><dd>400臺中市中區中山路119號</dd><dt>營業時間</dt><dd>每日 09:00–19:00（查詢日期 2026-11-04）</dd><dt>價位</dt><dd>$200-400</dd><dt>服務</dt><dd>內用、外帶、外送</dd><dt>Google 評分</dt><dd>★ 4.5（1267 則評論）</dd></dl>
       <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Phase%20Coffee%20Roasters%20%E4%B8%AD%E5%8D%80%E4%B8%AD%E5%B1%B1%E5%BA%97%20400%E8%87%BA%E4%B8%AD%E5%B8%82%E4%B8%AD%E5%8D%80%E4%B8%AD%E5%B1%B1%E8%B7%AF119%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a>
       <p class="note">資料查詢日期：2026-11-04</p>
@@ -41,5 +42,59 @@
   資料整理自我的 Google 地圖收藏與店家公開資訊。營業時間會變動，出發前請以店家公告為準。<br>
   本站由 AI Agent 依 <code>AGENTS.md</code> 規則產生。
 </div></footer>
+<script>
+(function () {
+  var DAYS = ['日', '一', '二', '三', '四', '五', '六'];
+  var parts = {};
+  new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Taipei', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+    .formatToParts(new Date()).forEach(function (p) { parts[p.type] = p.value; });
+  var wd = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(parts.weekday);
+  var now = parseInt(parts.hour, 10) * 60 + parseInt(parts.minute, 10);
+  function toMin(t) { var a = t.split(':'); return parseInt(a[0], 10) * 60 + parseInt(a[1], 10); }
+  function parse(str) {
+    var map = {};
+    str.split('|').forEach(function (seg) {
+      var s = seg.trim().split(' ');
+      if (s.length >= 2) map[s[0]] = s[1];
+    });
+    return map;
+  }
+  function range(v) {
+    if (!v || v === '?' || v === '休息') return null;
+    var a = v.split('-'), s = toMin(a[0]), e = toMin(a[1]);
+    if (e <= s) e += 1440;
+    return { s: s, e: e };
+  }
+  function fmt(v) { return v.replace('-', '–'); }
+  var open = 0;
+  document.querySelectorAll('[data-hours]').forEach(function (el) {
+    var out = el.querySelector('[data-today]');
+    if (!out || !el.dataset.hours) return;
+    var map = parse(el.dataset.hours);
+    var today = map[DAYS[wd]], yest = range(map[DAYS[(wd + 6) % 7]]);
+    var r = range(today), cls, text;
+    if (yest && yest.e > 1440 && now < yest.e - 1440) {
+      cls = 'open'; text = '營業中 · 營業到 ' + fmt(map[DAYS[(wd + 6) % 7]]).split('–')[1];
+    } else if (today === '休息') {
+      cls = 'closed'; text = '今天公休';
+    } else if (!r) {
+      cls = 'unknown'; text = '今天營業時間待確認';
+    } else if (now < r.s) {
+      cls = 'later'; text = '今天 ' + fmt(today) + ' · 還沒開門';
+    } else if (now < r.e) {
+      cls = 'open'; text = '營業中 · 今天 ' + fmt(today);
+    } else {
+      cls = 'closed'; text = '今天 ' + fmt(today) + ' · 已打烊';
+    }
+    out.className = out.className.replace(/ is-\w+/g, '') + ' is-' + cls;
+    out.textContent = text;
+    if (cls === 'open') { el.dataset.open = '1'; open++; }
+  });
+  var c = document.querySelector('[data-open-count]');
+  if (c) c.textContent = open;
+  var n = document.querySelector('[data-now]');
+  if (n) n.textContent = '依台灣時間：今天週' + DAYS[wd] + '，現在 ' + parts.hour + ':' + parts.minute + '。營業時間以店家公告為準。';
+})();
+</script>
 </body>
 </html>

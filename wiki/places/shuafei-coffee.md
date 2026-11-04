@@ -10,6 +10,7 @@ reviews: 178
 tags: 甜點, 復古, 有鹹食
 tagline: 昭和復古風，名字就叫你放鬆
 maps: https://www.google.com/maps/search/?api=1&query=%E8%80%8D%E5%BB%A2%E7%8F%88%E7%90%B2%20403%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%9C%9F%E5%BA%AB%E9%87%8C%E4%BA%94%E6%AC%8A%E4%B8%80%E8%A1%9765-3%E8%99%9F
+hours: 一 ? | 二 ? | 三 12:00-19:00 | 四 12:00-19:00 | 五 12:00-19:00 | 六 12:00-19:00 | 日 休息
 updated: 2026-11-04
 ---
 

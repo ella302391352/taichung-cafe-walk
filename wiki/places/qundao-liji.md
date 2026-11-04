@@ -10,6 +10,7 @@ reviews: 182
 tags: 甜點, 季節限定
 tagline: 柳川旁的季節水果甜點
 maps: https://www.google.com/maps/search/?api=1&query=%E7%BE%A4%E5%B3%B6%E6%9D%8E%E5%AD%A3%20403032%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%85%AC%E8%88%98%E9%87%8C%E6%9F%B3%E5%B7%9D%E6%9D%B1%E8%B7%AF%E4%BA%8C%E6%AE%B553%E5%B7%B71%E8%99%9F
+hours: 一 11:00-17:00 | 二 11:00-17:00 | 三 休息 | 四 休息 | 五 11:00-17:00 | 六 11:00-17:00 | 日 11:00-17:00
 updated: 2026-11-04
 ---
 

@@ -10,6 +10,7 @@ reviews: 574
 tags: 每日營業, 巷弄
 tagline: 藏在巷子裡的西屯小店
 maps: https://www.google.com/maps/search/?api=1&query=%E8%87%AA%E9%87%8E%20407%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%B1%AF%E5%8D%80%E7%A6%8F%E6%9E%97%E9%87%8C%E8%A5%BF%E5%B1%AF%E8%B7%AF%E4%B8%89%E6%AE%B5%E5%AE%8F%E7%A6%8F%E4%B8%80%E5%B7%B76%E5%BC%8413%E8%99%9F
+hours: 一 11:30-18:30 | 二 11:30-18:30 | 三 11:30-18:30 | 四 11:30-18:30 | 五 11:30-18:30 | 六 11:30-18:30 | 日 11:30-18:30
 updated: 2026-11-04
 ---
 

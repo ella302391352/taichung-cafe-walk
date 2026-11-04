@@ -19,10 +19,11 @@
 <main class="wrap">
   <div class="crumbs"><a href="../../index.html">首頁</a> › 北區</div>
   <section class="hero"><div class="kicker">AREA</div><h1>臺中市北區</h1><p>北區的太平路一帶。</p></section>
-  <div class="cards"><a class="card" href="../../pages/places/more-cafe.html" data-tags="甜點 復古">
+  <div class="cards"><a class="card" href="../../pages/places/more-cafe.html" data-tags="甜點 復古" data-hours="一 11:30-19:00 | 二 休息 | 三 11:30-19:00 | 四 11:30-19:00 | 五 11:30-19:00 | 六 11:30-19:00 | 日 11:30-19:00">
   <div class="meta"><span>北區</span><span>咖啡店</span><span>★ 4.7</span></div>
   <h3>無咖啡 More Cafe</h3>
   <p>有柴犬和玩具的復古小店</p>
+  <div class="today" data-today></div>
   <div class="tags"><span class="tag">#甜點</span><span class="tag">#復古</span></div>
 </a></div>
   <p style="padding:28px 0"><a href="../../index.html">← 回首頁看全部地區</a></p>
@@ -31,5 +32,59 @@
   資料整理自我的 Google 地圖收藏與店家公開資訊。營業時間會變動，出發前請以店家公告為準。<br>
   本站由 AI Agent 依 <code>AGENTS.md</code> 規則產生。
 </div></footer>
+<script>
+(function () {
+  var DAYS = ['日', '一', '二', '三', '四', '五', '六'];
+  var parts = {};
+  new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Taipei', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+    .formatToParts(new Date()).forEach(function (p) { parts[p.type] = p.value; });
+  var wd = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(parts.weekday);
+  var now = parseInt(parts.hour, 10) * 60 + parseInt(parts.minute, 10);
+  function toMin(t) { var a = t.split(':'); return parseInt(a[0], 10) * 60 + parseInt(a[1], 10); }
+  function parse(str) {
+    var map = {};
+    str.split('|').forEach(function (seg) {
+      var s = seg.trim().split(' ');
+      if (s.length >= 2) map[s[0]] = s[1];
+    });
+    return map;
+  }
+  function range(v) {
+    if (!v || v === '?' || v === '休息') return null;
+    var a = v.split('-'), s = toMin(a[0]), e = toMin(a[1]);
+    if (e <= s) e += 1440;
+    return { s: s, e: e };
+  }
+  function fmt(v) { return v.replace('-', '–'); }
+  var open = 0;
+  document.querySelectorAll('[data-hours]').forEach(function (el) {
+    var out = el.querySelector('[data-today]');
+    if (!out || !el.dataset.hours) return;
+    var map = parse(el.dataset.hours);
+    var today = map[DAYS[wd]], yest = range(map[DAYS[(wd + 6) % 7]]);
+    var r = range(today), cls, text;
+    if (yest && yest.e > 1440 && now < yest.e - 1440) {
+      cls = 'open'; text = '營業中 · 營業到 ' + fmt(map[DAYS[(wd + 6) % 7]]).split('–')[1];
+    } else if (today === '休息') {
+      cls = 'closed'; text = '今天公休';
+    } else if (!r) {
+      cls = 'unknown'; text = '今天營業時間待確認';
+    } else if (now < r.s) {
+      cls = 'later'; text = '今天 ' + fmt(today) + ' · 還沒開門';
+    } else if (now < r.e) {
+      cls = 'open'; text = '營業中 · 今天 ' + fmt(today);
+    } else {
+      cls = 'closed'; text = '今天 ' + fmt(today) + ' · 已打烊';
+    }
+    out.className = out.className.replace(/ is-\w+/g, '') + ' is-' + cls;
+    out.textContent = text;
+    if (cls === 'open') { el.dataset.open = '1'; open++; }
+  });
+  var c = document.querySelector('[data-open-count]');
+  if (c) c.textContent = open;
+  var n = document.querySelector('[data-now]');
+  if (n) n.textContent = '依台灣時間：今天週' + DAYS[wd] + '，現在 ' + parts.hour + ':' + parts.minute + '。營業時間以店家公告為準。';
+})();
+</script>
 </body>
 </html>

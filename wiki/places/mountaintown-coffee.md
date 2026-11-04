@@ -10,6 +10,7 @@ reviews: 715
 tags: 老屋, 甜點, 自家烘豆
 tagline: 黎明新村老屋裡的烘豆所
 maps: https://www.google.com/maps/search/?api=1&query=Mountaintown%20Coffee%20Roasters%20408%E8%87%BA%E4%B8%AD%E5%B8%82%E5%8D%97%E5%B1%AF%E5%8D%80%E9%BB%8E%E6%98%8E%E9%87%8C%E5%B9%B2%E5%9F%8E%E8%A1%97145%E5%B7%B71%E5%BC%849%E8%99%9F
+hours: 一 ? | 二 ? | 三 ? | 四 ? | 五 ? | 六 ? | 日 ?
 updated: 2026-11-04
 ---
 

@@ -10,6 +10,7 @@ reviews: 738
 tags: 深夜, 餐酒館, 有鹹食, 每日營業
 tagline: 白天咖啡、晚上餐酒館
 maps: https://www.google.com/maps/search/?api=1&query=Lay%20Low%20403%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%90%89%E9%BE%8D%E9%87%8C%E4%BA%94%E6%AC%8A%E8%A5%BF%E5%9B%9B%E8%A1%97108%E8%99%9F
+hours: 一 11:00-01:00 | 二 11:00-01:00 | 三 11:00-01:00 | 四 11:00-01:00 | 五 11:00-01:00 | 六 11:00-01:00 | 日 11:00-01:00
 updated: 2026-11-04
 ---
 

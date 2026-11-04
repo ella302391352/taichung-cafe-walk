@@ -10,6 +10,7 @@ reviews: 1267
 tags: 早午餐, 甜點, 每日營業, 舊城區
 tagline: 中山路上的早午餐與烘豆店
 maps: https://www.google.com/maps/search/?api=1&query=Phase%20Coffee%20Roasters%20%E4%B8%AD%E5%8D%80%E4%B8%AD%E5%B1%B1%E5%BA%97%20400%E8%87%BA%E4%B8%AD%E5%B8%82%E4%B8%AD%E5%8D%80%E4%B8%AD%E5%B1%B1%E8%B7%AF119%E8%99%9F
+hours: 一 09:00-19:00 | 二 09:00-19:00 | 三 09:00-19:00 | 四 09:00-19:00 | 五 09:00-19:00 | 六 09:00-19:00 | 日 09:00-19:00
 updated: 2026-11-04
 ---
 

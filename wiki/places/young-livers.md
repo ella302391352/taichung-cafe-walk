@@ -10,6 +10,7 @@ reviews: 229
 tags: 深夜, 有鹹食, 聚會
 tagline: 營業到凌晨四點的深夜沙發咖啡
 maps: https://www.google.com/maps/search/?api=1&query=%E8%82%9D%E6%96%B0%20YOUNG%20LIVERS%20403%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E5%85%AC%E8%88%98%E9%87%8C%E4%BA%94%E6%AC%8A%E8%A5%BF%E4%B8%80%E8%A1%97115%E4%B9%8B1%E8%99%9F%202%E6%A8%93
+hours: 一 休息 | 二 休息 | 三 12:00-04:00 | 四 12:00-04:00 | 五 12:00-04:00 | 六 12:00-04:00 | 日 12:00-03:00
 updated: 2026-11-04
 ---
 

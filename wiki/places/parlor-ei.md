@@ -10,6 +10,7 @@ reviews: 412
 tags: 甜點, 季節限定, 每日營業
 tagline: 隨季節換水果的戚風與泡芙
 maps: https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%83%BC%E3%83%A9%E3%83%BC%E6%98%A0%20parlor_ei%20403025%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E4%BA%94%E6%AC%8A%E8%A5%BF%E4%BA%8C%E8%A1%97112%E8%99%9F
+hours: 一 13:00-19:00 | 二 13:00-19:00 | 三 13:00-19:00 | 四 13:00-19:00 | 五 13:00-19:00 | 六 13:00-19:00 | 日 13:00-19:00
 updated: 2026-11-04
 ---
 

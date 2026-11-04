@@ -10,6 +10,7 @@ reviews: 103
 tags: 甜點, 親子
 tagline: 大里的甜點小店
 maps: https://www.google.com/maps/search/?api=1&query=%E9%AD%AF%E8%A5%BF%E6%AD%90%20LUCEO%20CAFE%20412%E8%87%BA%E4%B8%AD%E5%B8%82%E5%A4%A7%E9%87%8C%E5%8D%80%E7%91%9E%E5%9F%8E%E9%87%8C%E7%BE%8E%E6%9D%91%E8%A1%9730%E8%99%9F
+hours: 一 12:00-17:00 | 二 12:00-17:00 | 三 12:00-17:00 | 四 12:00-17:00 | 五 12:00-17:00 | 六 12:00-17:00 | 日 12:00-17:00
 updated: 2026-11-04
 ---
 

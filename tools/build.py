@@ -80,6 +80,65 @@ def md_block(text):
     return "\n".join(out)
 
 
+# ── 今日營業狀態（依台灣時間計算，所有頁面共用）────────────────
+# 讀取元素上的 data-hours（格式：「一 11:30-19:00 | 二 休息 | 三 ? | …」），
+# 把結果寫進其中的 [data-today]，並在元素上標記 data-open="1"。
+TODAY_JS = """<script>
+(function () {
+  var DAYS = ['日', '一', '二', '三', '四', '五', '六'];
+  var parts = {};
+  new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Taipei', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+    .formatToParts(new Date()).forEach(function (p) { parts[p.type] = p.value; });
+  var wd = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(parts.weekday);
+  var now = parseInt(parts.hour, 10) * 60 + parseInt(parts.minute, 10);
+  function toMin(t) { var a = t.split(':'); return parseInt(a[0], 10) * 60 + parseInt(a[1], 10); }
+  function parse(str) {
+    var map = {};
+    str.split('|').forEach(function (seg) {
+      var s = seg.trim().split(' ');
+      if (s.length >= 2) map[s[0]] = s[1];
+    });
+    return map;
+  }
+  function range(v) {
+    if (!v || v === '?' || v === '休息') return null;
+    var a = v.split('-'), s = toMin(a[0]), e = toMin(a[1]);
+    if (e <= s) e += 1440;
+    return { s: s, e: e };
+  }
+  function fmt(v) { return v.replace('-', '–'); }
+  var open = 0;
+  document.querySelectorAll('[data-hours]').forEach(function (el) {
+    var out = el.querySelector('[data-today]');
+    if (!out || !el.dataset.hours) return;
+    var map = parse(el.dataset.hours);
+    var today = map[DAYS[wd]], yest = range(map[DAYS[(wd + 6) % 7]]);
+    var r = range(today), cls, text;
+    if (yest && yest.e > 1440 && now < yest.e - 1440) {
+      cls = 'open'; text = '營業中 · 營業到 ' + fmt(map[DAYS[(wd + 6) % 7]]).split('–')[1];
+    } else if (today === '休息') {
+      cls = 'closed'; text = '今天公休';
+    } else if (!r) {
+      cls = 'unknown'; text = '今天營業時間待確認';
+    } else if (now < r.s) {
+      cls = 'later'; text = '今天 ' + fmt(today) + ' · 還沒開門';
+    } else if (now < r.e) {
+      cls = 'open'; text = '營業中 · 今天 ' + fmt(today);
+    } else {
+      cls = 'closed'; text = '今天 ' + fmt(today) + ' · 已打烊';
+    }
+    out.className = out.className.replace(/ is-\\w+/g, '') + ' is-' + cls;
+    out.textContent = text;
+    if (cls === 'open') { el.dataset.open = '1'; open++; }
+  });
+  var c = document.querySelector('[data-open-count]');
+  if (c) c.textContent = open;
+  var n = document.querySelector('[data-now]');
+  if (n) n.textContent = '依台灣時間：今天週' + DAYS[wd] + '，現在 ' + parts.hour + ':' + parts.minute + '。營業時間以店家公告為準。';
+})();
+</script>"""
+
+
 # ── 共用版型 ─────────────────────────────────────────────
 def page(title, body, depth, desc=""):
     up = "../" * depth
@@ -106,6 +165,7 @@ def page(title, body, depth, desc=""):
   資料整理自我的 Google 地圖收藏與店家公開資訊。營業時間會變動，出發前請以店家公告為準。<br>
   本站由 AI Agent 依 <code>AGENTS.md</code> 規則產生。
 </div></footer>
+{TODAY_JS}
 </body>
 </html>
 """
@@ -113,10 +173,11 @@ def page(title, body, depth, desc=""):
 
 def card(p, up):
     tags = "".join(f'<span class="tag">#{esc(t)}</span>' for t in p["tags"])
-    return f"""<a class="card" href="{up}pages/places/{p['slug']}.html" data-tags="{esc(' '.join(p['tags']))}">
+    return f"""<a class="card" href="{up}pages/places/{p['slug']}.html" data-tags="{esc(' '.join(p['tags']))}" data-hours="{esc(p.get('hours',''))}">
   <div class="meta"><span>{esc(p['area'])}</span><span>{esc(p.get('type',''))}</span><span>★ {esc(p.get('rating',''))}</span></div>
   <h3>{esc(p['name'])}</h3>
   <p>{esc(p.get('tagline',''))}</p>
+  <div class="today" data-today></div>
   <div class="tags">{tags}</div>
 </a>"""
 
@@ -161,7 +222,8 @@ def build():
   </div>
   <div class="layout">
     <article class="prose">{prose}</article>
-    <aside class="facts">
+    <aside class="facts" data-hours="{esc(p.get('hours',''))}">
+      <div class="today today-big" data-today></div>
       <dl>{dl}</dl>
       <a class="btn" href="{esc(p['maps'])}" target="_blank" rel="noopener">在 Google 地圖開啟</a>
       <p class="note">資料查詢日期：{esc(p.get('updated',''))}</p>
@@ -188,7 +250,8 @@ def build():
     for p in places:
         for t in p["tags"]:
             all_tags[t] = all_tags.get(t, 0) + 1
-    chips = '<button class="chip" aria-pressed="true" data-tag="">全部</button>' + "".join(
+    chips = ('<button class="chip" aria-pressed="true" data-tag="">全部</button>'
+             '<button class="chip chip-open" aria-pressed="false" data-tag="__open">● 現在營業中</button>') + "".join(
         f'<button class="chip" aria-pressed="false" data-tag="{esc(t)}">#{esc(t)}</button>'
         for t, _ in sorted(all_tags.items(), key=lambda x: -x[1]))
     blocks = "".join(f"""<section class="area" data-area>
@@ -200,7 +263,8 @@ def build():
     <div class="kicker">TAICHUNG CAFÉ WALK</div>
     <h1>從我的地圖收藏，<br>走進台中的咖啡店</h1>
     <p>這裡整理了我在 Google 地圖上收藏的台中咖啡廳。每家店都附上地址、營業時間與評論中常被提到的品項，方便下次決定要去哪一家。</p>
-    <div class="stats"><div><b>{len(places)}</b><span>家咖啡店</span></div><div><b>{len(by_area)}</b><span>個行政區</span></div><div><b>{sum(1 for p in places if '深夜' in p['tags'])}</b><span>家開到深夜</span></div></div>
+    <div class="stats"><div><b>{len(places)}</b><span>家咖啡店</span></div><div><b>{len(by_area)}</b><span>個行政區</span></div><div><b data-open-count>–</b><span>家現在營業中</span></div></div>
+    <p class="now" data-now></p>
   </section>
   <div class="filters" role="group" aria-label="依標籤篩選">{chips}</div>
   <div id="areas">{blocks}</div>
@@ -213,7 +277,7 @@ def build():
       var tag = c.dataset.tag;
       chips.forEach(function (x) {{ x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); }});
       document.querySelectorAll('.card').forEach(function (card) {{
-        var ok = !tag || card.dataset.tags.split(' ').indexOf(tag) > -1;
+        var ok = !tag || (tag === '__open' ? card.dataset.open === '1' : card.dataset.tags.split(' ').indexOf(tag) > -1);
         card.classList.toggle('is-hidden', !ok);
       }});
       document.querySelectorAll('[data-area]').forEach(function (sec) {{

@@ -10,6 +10,7 @@ reviews: 132
 tags: 甜點, 復古
 tagline: 有柴犬和玩具的復古小店
 maps: https://www.google.com/maps/search/?api=1&query=%E7%84%A1%E5%92%96%E5%95%A1%20More%20Cafe%20404%E8%87%BA%E4%B8%AD%E5%B8%82%E5%8C%97%E5%8D%80%E6%96%B0%E5%8C%97%E9%87%8C%E5%A4%AA%E5%B9%B3%E8%B7%AF4-3%E8%99%9F
+hours: 一 11:30-19:00 | 二 休息 | 三 11:30-19:00 | 四 11:30-19:00 | 五 11:30-19:00 | 六 11:30-19:00 | 日 11:30-19:00
 updated: 2026-11-04
 ---
 

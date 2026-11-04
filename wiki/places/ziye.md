@@ -1,0 +1,41 @@
+---
+slug: ziye
+name: 自野
+area: 西屯區
+area_slug: xitun
+type: 咖啡店
+price: $200-400
+rating: 4.5
+reviews: 574
+tags: 每日營業, 巷弄
+tagline: 藏在巷子裡的西屯小店
+maps: https://www.google.com/maps/search/?api=1&query=%E8%87%AA%E9%87%8E%20407%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%B1%AF%E5%8D%80%E7%A6%8F%E6%9E%97%E9%87%8C%E8%A5%BF%E5%B1%AF%E8%B7%AF%E4%B8%89%E6%AE%B5%E5%AE%8F%E7%A6%8F%E4%B8%80%E5%B7%B76%E5%BC%8413%E8%99%9F
+updated: 2026-11-04
+---
+
+# 自野
+
+- 地區：臺中市西屯區
+- 類型：咖啡店
+- 地址：407臺中市西屯區福林里西屯路三段宏福一巷6弄13號
+- 營業時間：每日 11:30–18:30（查詢日期 2026-11-04）
+- 價位：$200-400
+- 服務：待確認
+- Google 地圖：https://www.google.com/maps/search/?api=1&query=%E8%87%AA%E9%87%8E%20407%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%B1%AF%E5%8D%80%E7%A6%8F%E6%9E%97%E9%87%8C%E8%A5%BF%E5%B1%AF%E8%B7%AF%E4%B8%89%E6%AE%B5%E5%AE%8F%E7%A6%8F%E4%B8%80%E5%B7%B76%E5%BC%8413%E8%99%9F
+- 標籤：#每日營業 #巷弄
+
+## 特色
+
+西屯路三段巷弄深處的咖啡店，從大路轉進宏福一巷才找得到，有種特地去拜訪的感覺。每天 11:30 開到傍晚 18:30，沒有固定公休，臨時想喝咖啡也不太會撲空。Google 評分 4.5、五百多則評論，是清單裡評價穩定的一家。菜單細節還沒查到，等實際去過再補。
+
+## 推薦品項
+
+待確認
+
+## 我的筆記
+
+（尚未填寫。去過之後由我補上。）
+
+## 資料來源
+
+- [raw/research/ziye.md](../../raw/research/ziye.md)（Google 地圖店家頁，2026-11-04）

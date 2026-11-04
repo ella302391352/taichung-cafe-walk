@@ -1,0 +1,41 @@
+---
+slug: parlor-ei
+name: パーラー映 parlor_ei
+area: 西區
+area_slug: west
+type: 咖啡店
+price: $200-400
+rating: 4.4
+reviews: 412
+tags: 甜點, 季節限定, 每日營業
+tagline: 隨季節換水果的戚風與泡芙
+maps: https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%83%BC%E3%83%A9%E3%83%BC%E6%98%A0%20parlor_ei%20403025%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E4%BA%94%E6%AC%8A%E8%A5%BF%E4%BA%8C%E8%A1%97112%E8%99%9F
+updated: 2026-11-04
+---
+
+# パーラー映 parlor_ei
+
+- 地區：臺中市西區
+- 類型：咖啡店
+- 地址：403025臺中市西區五權西二街112號
+- 營業時間：每日 13:00–19:00（店名註明內用至 18:00，外帶至 19:00）（查詢日期 2026-11-04）
+- 價位：$200-400
+- 服務：內用、外帶；無無障礙入口
+- Google 地圖：https://www.google.com/maps/search/?api=1&query=%E3%83%91%E3%83%BC%E3%83%A9%E3%83%BC%E6%98%A0%20parlor_ei%20403025%E8%87%BA%E4%B8%AD%E5%B8%82%E8%A5%BF%E5%8D%80%E4%BA%94%E6%AC%8A%E8%A5%BF%E4%BA%8C%E8%A1%97112%E8%99%9F
+- 標籤：#甜點 #季節限定 #每日營業
+
+## 特色
+
+店名是日文「パーラー映」，在五權西二街。評論關鍵字有歐洲梨、葡萄、季節，看起來甜點會跟著當季水果更換；戚風和泡芙是常被提到的品項，也有鹹派和焙茶。每天下午 1 點才開門，內用只到 18:00。
+
+## 推薦品項
+
+評論中常被提到：戚風、泡芙、鹹派、焙茶、歐洲梨、葡萄、季節
+
+## 我的筆記
+
+（尚未填寫。去過之後由我補上。）
+
+## 資料來源
+
+- [raw/research/parlor-ei.md](../../raw/research/parlor-ei.md)（Google 地圖店家頁，2026-11-04）

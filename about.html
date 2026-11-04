@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>關於｜台中咖啡散步</title>
+<meta name="description" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="index.html">台中<span>咖啡</span>散步</a>
+  <nav><a href="index.html#areas">地區</a><a href="about.html">關於</a></nav>
+</div></header>
+<main class="wrap"><section class="hero"><div class="kicker">ABOUT</div><h1>關於這個網站</h1>
+<p>這是一個「讓 AI 照規則持續擴充」的練習專案。我把 Google 地圖收藏匯出成原始資料（raw），由 AI Agent 依照 <code>AGENTS.md</code> 補查店家資訊、整理成 wiki 知識庫，再用 <code>tools/build.py</code> 產生每一頁 HTML。</p></section>
+<div class="prose" style="padding-bottom:48px">
+<h2>資料流程</h2><p>raw/google-maps（收藏清單）→ raw/research（每店查詢紀錄）→ wiki/places（知識庫）→ pages/（網頁）</p>
+<h2>收錄原則</h2><ul><li>只收錄臺中市、目前仍在營業的店家</li><li>查不到的資訊標示「待確認」，不猜測</li><li>不使用網路上的店家照片</li></ul>
+</div></main>
+<footer class="site-foot"><div class="wrap">
+  資料整理自我的 Google 地圖收藏與店家公開資訊。營業時間會變動，出發前請以店家公告為準。<br>
+  本站由 AI Agent 依 <code>AGENTS.md</code> 規則產生。
+</div></footer>
+</body>
+</html>
